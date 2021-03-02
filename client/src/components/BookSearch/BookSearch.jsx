@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import API from "../../utils/API";
 
 const BookSearch = () => {
   const [bookSearch, setBookSearch] = useState("");
   const [formObject, setFormObject] = useState({
-    title: "",
     authors: "",
     description: "",
+    image: "",
     infoLink: "",
+    title: "",
   })
 
   const handleInputChange = (e) => {
