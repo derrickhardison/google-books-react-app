@@ -45,11 +45,13 @@ const Search = () => {
         authors: book.authors,
         title: book.title,
         description: book.description,
-        image: book.image,
-        link: book.link,
+        image: book.imageLinks.thumbnail,
+        link: book.infoLink,
+      }).then((response) => {
+        console.log(response)
       })
-    
-    }
+      
+  }
 
     //   .then((response) => {
     //     console.log("Successfully posted to DB!");
@@ -66,7 +68,8 @@ const Search = () => {
     //   .catch((err) => {
     //     console.log(err);
     //   });
-  //}
+    // }
+  
 
   useEffect(() => {
     SearchBooks();
