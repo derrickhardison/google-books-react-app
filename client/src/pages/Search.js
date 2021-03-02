@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BookSearch from "../components/BookSearch/BookSearch";
 import BookResult from "../components/BookResult/BookResult";
 import axios from "axios";
-
+import { response } from "express";
 
 function BookInfo(book) {
   return (
@@ -27,13 +27,31 @@ const Search = () => {
 
   function saveBook(book) {
     axios
-      .post("/api/books", book)
-      .then((response) => {
-        console.log(response);
+      .post("/api/books", {
+        authors: book.authors,
+        title: book.title,
+        description: book.description,
+        image: book.image,
+        link: book.link,
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .then(response)
+
+
+    //   .then((response) => {
+    //     console.log("Successfully posted to DB!");
+    //   })
+    //   .catch((err) => {
+    //     console.log("Error message: ", err);
+    //   });
+
+    // axios
+    //   .post("/api/books", book)
+    //   .then((response) => {
+    //     console.log(book.authors)
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   }
 
   useEffect(() => {
