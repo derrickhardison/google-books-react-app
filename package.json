@@ -27,7 +27,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.11.18"
+    "mongoose": "^5.11.18",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "concurrently": "^6.0.0",
