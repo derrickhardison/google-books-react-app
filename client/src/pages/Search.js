@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BookSearch from "../components/BookSearch/BookSearch";
 import BookResult from "../components/BookResult/BookResult";
 import axios from "axios";
-import { response } from "express";
+import API from "../utils/API"
 
 function BookInfo(book) {
   return (
@@ -25,6 +25,20 @@ const Search = () => {
       });
   }
 
+//   saveBook = currentBook => {
+//     console.log("This is the current book", currentBook);
+//     API.saveBook({
+//         id: currentBook.id,
+//         title: currentBook.title,
+//         authors: currentBook.authors,
+//         description: currentBook.description,
+//         image: currentBook.image,
+//         link: currentBook.link
+//     })
+//     .then(res => console.log("Successful POST to DB!", res))
+//     .catch(err => console.log("this is the error", err));
+// }
+
   function saveBook(book) {
     axios
       .post("/api/books", {
@@ -34,8 +48,8 @@ const Search = () => {
         image: book.image,
         link: book.link,
       })
-      .then(response)
-
+    
+    }
 
     //   .then((response) => {
     //     console.log("Successfully posted to DB!");
@@ -52,7 +66,7 @@ const Search = () => {
     //   .catch((err) => {
     //     console.log(err);
     //   });
-  }
+  //}
 
   useEffect(() => {
     SearchBooks();
