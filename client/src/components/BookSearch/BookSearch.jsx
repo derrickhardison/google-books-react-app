@@ -9,11 +9,17 @@ const BookSearch = () => {
     image: "",
     infoLink: "",
     title: "",
-  })
+  }, [])
+
+  const [bookTitle, setBookTitle] = useState("")
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormObject({...formObject, [name]: value})
+    //console.log(e.target.value)
+    console.log(formObject.title)
+    setBookTitle(e.target.value)
+    
   }
 
   const handleFormSubmit = (e) => {
@@ -29,7 +35,7 @@ const BookSearch = () => {
       <form onSubmit={handleFormSubmit}>
         <div className="mb-3">
           <label htmlFor="searchBook" className="form-label">
-            Search for Book
+            Search for Book 
           </label>
           <input
             name="title"
@@ -44,6 +50,7 @@ const BookSearch = () => {
           </button>
         </div>
       </form>
+      <bookTitle bookTitle={bookTitle} />
     </div>
   );
 };
