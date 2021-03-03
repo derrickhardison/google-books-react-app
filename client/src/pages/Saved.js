@@ -10,10 +10,14 @@ const Saved = () => {
   //     .then(res => console.log(res))
   //     .catch(err => console.log(err));
   // }
+
+  const [savedBooks, setSavedBooks] = useState([])
   useEffect(()=> {
     
     axios.get("/api/books").then((response) => {
-      console.log(response);
+      console.log(response.data);
+      setSavedBooks(response.data)
+      //console.log(setSavedBooks)
     });
   })
 
@@ -22,7 +26,10 @@ const Saved = () => {
       <div className="row">
         <div className="col-md-12">
           <h1>Saved Books</h1>
-          <SavedBooks />
+          {savedBooks.map((bookSaved) => (
+          <SavedBooks bookSaved={bookSaved} title={savedBooks.title}/>
+
+          ))}
         </div>
       </div>
     </div>
