@@ -14,7 +14,7 @@ const SavedBooks = () => {
               DELETE
             </button>
           </div>
-          <h5 className="card-title">Title</h5>
+          <h5 className="card-title">{}</h5>
 
           <p className="card-text">Author</p>
         </div>

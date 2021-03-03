@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import SavedBooks from "../components/SavedBooks/SavedBooks";
 import axios from "axios";
@@ -11,15 +11,14 @@ const Saved = () => {
   //     .catch(err => console.log(err));
   // }
 
-  const [savedBooks, setSavedBooks] = useState([])
-  useEffect(()=> {
-    
+  const [savedBooks, setSavedBooks] = useState([]);
+  useEffect(() => {
     axios.get("/api/books").then((response) => {
-      console.log(response.data);
-      setSavedBooks(response.data)
-      //console.log(setSavedBooks)
+      console.log("Here :", response.data);
+      setSavedBooks(response.data);
+      console.log("Line 20: ", setSavedBooks);
     });
-  })
+  }, []);
 
   return (
     <div className="container">
@@ -27,8 +26,9 @@ const Saved = () => {
         <div className="col-md-12">
           <h1>Saved Books</h1>
           {savedBooks.map((bookSaved) => (
-          <SavedBooks bookSaved={bookSaved} title={savedBooks.title}/>
-
+            <div key={bookSaved.id}>
+            <SavedBooks />
+            </div>
           ))}
         </div>
       </div>

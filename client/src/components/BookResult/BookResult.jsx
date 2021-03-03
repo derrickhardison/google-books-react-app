@@ -4,9 +4,6 @@ import "./BookResult.css";
 const BookResult = ({ book, saveBook }) => {
   console.log(book);
 
-  const loremDesc =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
-
   return (
     <div className="mt-5">
       
@@ -51,7 +48,7 @@ const BookResult = ({ book, saveBook }) => {
                   <div className="col-md-7">
                     <div className="card-body">
                       <p className="card-text">
-                        {book.volumeInfo.description || loremDesc}
+                        {book.volumeInfo.description}
                       </p>
                     </div>
                   </div>
