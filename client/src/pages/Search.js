@@ -17,7 +17,7 @@ const Search = () => {
   function SearchBooks() {
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=intitle:&key=AIzaSyAfrpQXZXcliTIXdDGXtxQAW6Pi5iGb42w`
+        `https://www.googleapis.com/books/v1/volumes?q=dragon+magic&intitle:&key=AIzaSyAfrpQXZXcliTIXdDGXtxQAW6Pi5iGb42w`
       )
       .then((response) => {
         console.log(response.data.items);
